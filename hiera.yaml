@@ -1,0 +1,18 @@
+---
+version: 5
+defaults:
+  datadir: /etc/puppetlabs/code/environments/%{::environment}/hieradata
+  data_hash: yaml_data
+hierarchy:
+  - name: "Clear"
+    paths: 
+      - "nodes/%{trusted.certname}.yaml"
+      - "common.yaml"
+  - name: "Encrypted"
+    paths:
+      - "nodes/%{trusted.certname}.yaml"
+      - "common.yaml"
+    lookup_key: eyaml_lookup_key
+    options:
+      pkcs7_private_key: /var/lib/puppet/secure/keys/private_key.pkcs7.pem
+      pkcs7_public_key: /var/lib/puppet/secure/keys/public_key.pkcs7.pem
