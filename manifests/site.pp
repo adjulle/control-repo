@@ -12,6 +12,5 @@ node 'puppetreports.vm.local' {
 
 node 'default' {
   include role::agent
-
   notify { 'Unclassified node': }
 }
