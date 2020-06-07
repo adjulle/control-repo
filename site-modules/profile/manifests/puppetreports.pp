@@ -3,6 +3,7 @@
 
 class profile::puppetreports (
   String $puppetboard_vhost,
+  String $puppetdb_host,
 ) {
 
   class { 'apache': }
@@ -19,7 +20,7 @@ class profile::puppetreports (
   class { 'puppetboard':
     groups              => 'puppet',
     manage_virtualenv   => true,
-    puppetdb_host       => hiera('puppetdb_host'),
+    puppetdb_host       => $puppetdb_host,
     puppetdb_port       => '8081',
     puppetdb_key        => "${ssl_dir}/private_keys/${puppetboard_certname}.pem",
     puppetdb_ssl_verify => false,

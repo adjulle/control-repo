@@ -3,7 +3,9 @@
 #
 
 class role::puppetdb {
+
   include ::profile::base
   include ::profile::puppetagent
   include ::profile::puppetdb
+  
 }

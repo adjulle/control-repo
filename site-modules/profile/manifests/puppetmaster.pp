@@ -6,7 +6,8 @@ class profile::puppetmaster(
     String $puppetdb_host,
 ) {
 
-  class { 'puppetserver':
+  class { 'puppet':
+    server => true,
     config => {
       'java_args'     => {
         'xms'   => '512m',

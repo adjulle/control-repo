@@ -3,7 +3,9 @@
 #
 
 class role::puppetreports {
+
   include ::profile::base
   include ::profile::puppetagent
   include ::profile::puppetreports
+  
 }
