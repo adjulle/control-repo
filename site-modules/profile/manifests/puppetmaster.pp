@@ -1,31 +1,9 @@
 # == Class: profiles::puppetmaster
 #
-#  Install and configure puppetmaster with remote puppetdb
-#
-# === Parameters
-#
-# [*use_puppetdb*]
-#
-# Install puppetdb on the master node?
-# Default value is looked up in hiera and set as "false" if nothing is found
-#
-# === Examples
-#
-#  class { 'profiles::puppetmaster':
-#    user_puppetdb  => true
-#  }
-#
-# === Authors
-#
-# Laurent Bernaille
-#
-# === Copyright
-#
-# Copyright 2013 Your name here, unless otherwise noted.
-#
 
 class profile::puppetmaster(
-    $use_puppetdb=hiera('profiles::puppetmaster::use_puppetdb',false)
+    Boolean $use_puppetdb,
+    String $puppetdb_host,
 ) {
 
   class { 'puppetserver':
@@ -54,7 +32,7 @@ class profile::puppetmaster(
   if $use_puppetdb {
 
     class { 'puppetdb::master::config':
-      puppetdb_server             => hiera('puppetdb_host'),
+      puppetdb_server             => $puppetdb_host,
       manage_routes               => true,
       manage_storeconfigs         => true,
       manage_report_processor     => true,

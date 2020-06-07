@@ -1,27 +1,16 @@
 # == Class: profile::puppetreports
 #
-#  Install and configure puppetboard
-#
-# === Parameters
-#
-# === Authors
-#
-# Laurent Bernaille
-#
-# === Copyright
-#
-# Copyright 2013 Your name here, unless otherwise noted.
-#
 
-class profile::puppetreports(
+class profile::puppetreports (
+  String $puppetboard_vhost,
 ) {
 
   class { 'apache': }
   class { 'apache::mod::wsgi':
-    wsgi_socket_prefix => "/var/run/wsgi",
+    wsgi_socket_prefix => '/var/run/wsgi',
   }
   class { 'puppetboard::apache::vhost':
-    vhost_name => hiera('profiles::puppetboard::puppetboard_vhost',$::fqdn)
+    vhost_name => $puppetboard_vhost
   }
 
   $ssl_dir = $::settings::ssldir

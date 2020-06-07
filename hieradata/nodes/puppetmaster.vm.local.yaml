@@ -1,8 +1,6 @@
 ---
-
-profiles::puppetmaster::use_puppetdb: true
-profiles::puppetmaster::use_puppetboard: true
-
-profiles::puppetmaster::autosign_hosts:
+profile::puppetmaster::use_puppetdb: true
+profile::puppetmaster::use_puppetboard: true
+profile::puppetmaster::autosign_hosts:
   - 'puppetdb.vm.local'
   - 'puppetreports.vm.local'

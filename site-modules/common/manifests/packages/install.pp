@@ -19,9 +19,10 @@
 #      provider: xxx
 #
 
-class common::packages::install( $packages = hiera_hash('packages', {} ) ) {
-    validate_hash( $packages )
-    if ( $packages ) {
-        create_resources( package, $packages )
-    }
+class common::packages::install (
+  Hash $packages,
+) {
+  if ( $packages ) {
+    create_resources( package, $packages )
+  }
 }
