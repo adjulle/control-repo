@@ -8,12 +8,6 @@ class profile::puppetmaster(
 
   class { 'puppet':
     server => true,
-    config => {
-      'java_args'     => {
-        'xms'   => '512m',
-        'xmx'   => '512m'
-      }
-    }
   }
   contain 'puppetserver'
   # Ensure server starts before agent to avoid key issues
