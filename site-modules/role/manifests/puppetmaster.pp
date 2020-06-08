@@ -1,8 +1,7 @@
-# == Class: role::master
-# Include profiles for a master role (base, puppetserver)
+# == Class: role::puppetmaster
 #
 
-class role::master {
+class role::puppetmaster {
 
   include profile::base
   include profile::puppetmaster

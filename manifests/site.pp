@@ -1,5 +1,5 @@
 node 'puppetmaster.vm.local' {
-  include role::master
+  include role::puppetmaster_standalone
 }
 
 node 'puppetdb.vm.local' {
