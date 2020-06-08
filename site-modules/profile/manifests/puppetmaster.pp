@@ -10,11 +10,11 @@ class profile::puppetmaster(
   # Ensure server starts before agent to avoid key issues
   # Service['puppetserver']->Service['puppet']
 
-  $confdir = $::settings::confdir
-  file { "${confdir}/autosign.conf":
-    ensure  => file,
-    content => epp('profile/puppetmaster/autosign.conf.epp',{ 'autosign_hosts' => $autosign_hosts }),
-  }
+  # $confdir = $::settings::confdir
+  # file { "${confdir}/autosign.conf":
+  #   ensure  => file,
+  #   content => epp('profile/puppetmaster/autosign.conf.epp',{ 'autosign_hosts' => $autosign_hosts }),
+  # }
 
   # class { '::puppetserver::hiera::eyaml':
   #   require => Class['puppetserver::install'],
