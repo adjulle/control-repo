@@ -16,9 +16,9 @@ class profile::puppetmaster(
     content => epp('profile/puppetmaster/autosign.conf.epp',{ 'autosign_hosts' => $autosign_hosts }),
   }
 
-  class { '::puppetserver::hiera::eyaml':
-    require => Class['puppetserver::install'],
-  }
+  # class { '::puppetserver::hiera::eyaml':
+  #   require => Class['puppetserver::install'],
+  # }
   # contain '::puppetserver::hiera::eyaml'
 
   if $use_puppetdb {
