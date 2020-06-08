@@ -3,8 +3,8 @@
 
 class profile::puppetmaster(
     Boolean $use_puppetdb,
+    Boolean $autosign,
     String  $puppetdb_host,
-    Array   $autosign_hosts,
 ) {
 
   # Ensure server starts before agent to avoid key issues
@@ -28,6 +28,7 @@ class profile::puppetmaster(
       server_foreman      => false,
       server_reports      => 'puppetdb',
       server_storeconfigs => true,
+      autosign            => $autosign,
     }
 
     class { 'puppet::server::puppetdb':
@@ -52,6 +53,7 @@ class profile::puppetmaster(
       server_foreman        => false,
       server_reports        => 'store',
       server_external_nodes => '',
+      autosign              => $autosign,
     }
   }
 }
