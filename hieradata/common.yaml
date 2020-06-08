@@ -12,8 +12,12 @@ profile::base::message: ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQ
 profile::puppetagent::puppetmaster: 'puppetmaster.vm.local'
 profile::puppetmaster_standalone::puppetboard_vhost: 'puppetmaster.vm.local'
 profile::puppetmaster_standalone::autosign: true
-profile::puppetmaster_standaline::puppetdb_host: 'puppetmaster.vm.local'
+profile::puppetmaster_standalone::puppetdb_host: 'puppetmaster.vm.local'
+profile::puppetmaster_standalone::use_puppetdb: true
+profile::puppetmaster_standalone::use_puppetboard: true
 profile::puppetmaster::autosign: true
 profile::puppetmaster::puppetdb_host: 'puppetdb.vm.local'
+profile::puppetmaster::use_puppetdb: true
+profile::puppetmaster::use_puppetboard: true
 profile::puppetreports::puppetboard_vhost: 'puppetreports.vm.local'
 profile::puppetreports::puppetdb_host: 'puppetdb.vm.local'
