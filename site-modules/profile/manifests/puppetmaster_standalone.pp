@@ -23,8 +23,8 @@ class profile::puppetmaster_standalone(
     server => $puppetdb_host,
   }
 
-  if $use_puppetdb {
-    class { 'puppetdb': }
-  }
+  # if $use_puppetdb {
+  #   class { 'puppetdb': }
+  # }
 
 }
