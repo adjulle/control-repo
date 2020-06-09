@@ -10,10 +10,11 @@ class profile::puppetmaster_standalone(
 ) {
 
   class { 'puppet':
-    server              => true,
-    server_reports      => 'puppetdb,foreman',
-    server_storeconfigs => true,
-    autosign            => $autosign,
+    server    => true,
+    server_ca => true,
+    #server_reports      => 'puppetdb',
+    #server_storeconfigs => true,
+    autosign  => $autosign,
   }
 
   class { 'puppet::server::puppetdb':
