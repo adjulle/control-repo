@@ -4,11 +4,13 @@ mod 'camptocamp-augeas', '1.9.0'
 mod 'camptocamp-systemd', '2.9.0'
 
 mod 'herculesteam-augeasproviders_core', '2.6.0'
+mod 'herculesteam-augeasproviders_sysctl', '2.5.0'
 
 mod 'puppet-epel', '3.0.1'
 mod 'puppet-extlib', '5.0.0'
 mod 'puppet-puppetboard', '6.1.0'
 mod 'puppet-python', '3.0.1'
+mod 'puppet-redis', '6.0.0'
 
 mod 'puppetlabs-apache', '5.4.0'
 mod 'puppetlabs-apt', '7.4.2'
@@ -24,4 +26,5 @@ mod 'puppetlabs-stdlib', '6.3.0'
 mod 'puppetlabs-translate', '2.2.0'
 mod 'puppetlabs-vcsrepo', '3.1.0'
 
+mod 'theforeman-foreman', '15.0.0'
 mod 'theforeman-puppet', '14.0.0'
