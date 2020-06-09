@@ -49,18 +49,18 @@ class profile::puppetmaster_standalone(
     #   strict_validation       => false
     # }
 
-    if $use_puppetboard {
-      class { 'apache': }
-      # class { 'apache::mod::wsgi': }
+    # if $use_puppetboard {
+    #   class { 'apache': }
+    #   # class { 'apache::mod::wsgi': }
 
-      class { 'puppetboard':
-        manage_virtualenv => true,
-      }
+    #   class { 'puppetboard':
+    #     manage_virtualenv => true,
+    #   }
 
-      class { 'puppetboard::apache::vhost':
-        vhost_name => $puppetboard_vhost
-      }
-    }
+    #   class { 'puppetboard::apache::vhost':
+    #     vhost_name => $puppetboard_vhost
+    #   }
+    # }
   }
 
 }
