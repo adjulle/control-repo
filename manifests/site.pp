@@ -1,5 +1,6 @@
 node 'puppetmaster.vm.local' {
-  include role::puppetmaster_standalone
+  # include role::puppetmaster_standalone
+  notify { 'puppetmaster': }
 }
 
 node 'puppetdb.vm.local' {
