@@ -4,7 +4,9 @@
 class profile::puppetmaster_standalone(
   Boolean $use_puppetdb,
   Boolean $use_puppetboard,
-  String  $puppetboard_vhost
+  Boolean $autosign,
+  String  $puppetboard_vhost,
+  String  $puppetdb_host,
 ) {
 
   apt::source { 'puppetlabs':
@@ -15,18 +17,21 @@ class profile::puppetmaster_standalone(
       server => 'pgp.mit.edu'
     }
   }
-  -> class { 'puppetserver':
-    config => {
-      'java_args'     => {
-        'xms' => '512m',
-        'xmx' => '512m'
-      }
-    }
+
+  class { 'puppet':
+    server              => true,
+    server_foreman      => false,
+    server_reports      => 'puppetdb',
+    server_storeconfigs => true,
+    autosign            => $autosign,
+  }
+  class { 'puppet::server::puppetdb':
+    server => $puppetdb_host,
   }
 
-  class { '::puppetserver::hiera::eyaml':
-    require => Class['puppetserver::install'],
-  }
+  # class { '::puppetserver::hiera::eyaml':
+  #   require => Class['puppetserver::install'],
+  # }
 
   if $use_puppetdb {
     class { 'puppetdb': }
