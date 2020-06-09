@@ -16,8 +16,8 @@ class profile::puppetmaster_standalone(
     assumeyes => true,
     baseurl   => 'https://yum.theforeman.org/releases/2.1/el7/x86_64/foreman-release.rpm',
     descr     => 'Foreman',
-    enabled   => true,
-    gpgcheck  => false,
+    enabled   => 1,
+    gpgcheck  => 0,
   }
 
   class { 'foreman':  }
