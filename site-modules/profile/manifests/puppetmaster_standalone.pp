@@ -41,13 +41,13 @@ class profile::puppetmaster_standalone(
     # puppdb ssl-setup is performed at package installaion and requires ssl certificates for the node
     Class['puppetserver'] -> Package['puppetdb']
 
-    class { 'puppetdb::master::config':
-      manage_routes           => true,
-      manage_storeconfigs     => true,
-      manage_report_processor => true,
-      enable_reports          => true,
-      strict_validation       => false
-    }
+    # class { 'puppetdb::master::config':
+    #   manage_routes           => true,
+    #   manage_storeconfigs     => true,
+    #   manage_report_processor => true,
+    #   enable_reports          => true,
+    #   strict_validation       => false
+    # }
 
     if $use_puppetboard {
       class { 'apache': }
