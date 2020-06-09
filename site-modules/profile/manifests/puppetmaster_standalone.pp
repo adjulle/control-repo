@@ -9,6 +9,8 @@ class profile::puppetmaster_standalone(
   String  $puppetdb_host,
 ) {
 
+  class { 'foreman':  }
+
   class { 'puppet':
     server              => true,
     server_ca           => true,
