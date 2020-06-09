@@ -9,6 +9,8 @@ class profile::puppetmaster_standalone(
   String  $puppetdb_host,
 ) {
 
+  include epel
+
   class { 'foreman':  }
 
   # class { 'puppet':
