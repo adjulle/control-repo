@@ -14,7 +14,7 @@ class profile::puppetmaster_standalone(
   yumrepo { 'Foreman':
     ensure    => present,
     assumeyes => true,
-    baseurl   => 'https://yum.theforeman.org/releases/2.1/el7/x86_64/foreman-release.rpm',
+    baseurl   => 'https://yum.theforeman.org/releases/2.1/el7/x86_64/',
     descr     => 'Foreman',
     enabled   => 1,
     gpgcheck  => 0,
