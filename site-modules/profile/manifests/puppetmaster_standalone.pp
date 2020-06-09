@@ -19,11 +19,12 @@ class profile::puppetmaster_standalone(
   # }
 
   class { 'puppet':
-    server              => true,
-    server_foreman      => false,
-    server_reports      => 'puppetdb',
-    server_storeconfigs => true,
-    autosign            => $autosign,
+    server                => true,
+    # server_foreman        => false,
+    server_reports        => 'puppetdb',
+    server_storeconfigs   => true,
+    # server_external_nodes => '',
+    autosign              => $autosign,
   }
   class { 'puppet::server::puppetdb':
     server => $puppetdb_host,
