@@ -2,7 +2,6 @@
 #
 
 class profile::puppetmaster_standalone(
-  Boolean $use_puppetdb,
   Boolean $use_puppetboard,
   Boolean $autosign,
   String  $puppetboard_vhost,
@@ -32,12 +31,10 @@ class profile::puppetmaster_standalone(
     autosign                    => $autosign,
   }
 
-  # class { 'puppet::server::puppetdb':
-  #   server => $puppetdb_host,
-  # }
+  class { 'puppet::server::puppetdb':
+    server => $puppetdb_host,
+  }
 
-  # if $use_puppetdb {
-  #   class { 'puppetdb': }
-  # }
+  class { 'puppetdb': }
 
 }
