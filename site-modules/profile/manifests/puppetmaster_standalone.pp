@@ -54,7 +54,7 @@ class profile::puppetmaster_standalone(
       class { 'apache::mod::wsgi': }
 
       class { 'puppetboard':
-        manage_virtualenv => 'latest'
+        manage_virtualenv => true,
       }
 
       class { 'puppetboard::apache::vhost':
