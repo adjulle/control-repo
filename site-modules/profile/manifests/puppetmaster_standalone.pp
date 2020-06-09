@@ -39,7 +39,7 @@ class profile::puppetmaster_standalone(
     # No anchor in puppetdb module
     # We need ssl certificates to start jetty
     # puppdb ssl-setup is performed at package installaion and requires ssl certificates for the node
-    Class['puppetserver'] -> Package['puppetdb']
+    # Class['puppetserver'] -> Package['puppetdb']
 
     # class { 'puppetdb::master::config':
     #   manage_routes           => true,
@@ -51,7 +51,7 @@ class profile::puppetmaster_standalone(
 
     if $use_puppetboard {
       class { 'apache': }
-      class { 'apache::mod::wsgi': }
+      # class { 'apache::mod::wsgi': }
 
       class { 'puppetboard':
         manage_virtualenv => true,
